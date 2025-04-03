@@ -10,8 +10,27 @@ export default withAuth(
       authorized: ({ token, req }) => {
         const { pathname } = req.nextUrl;
 
-        // allow related routes
+        // allow auth related routes
+        if (
+          pathname.startsWith("/api/auth") ||
+          pathname === "/login" ||
+          pathname === "/register"
+        ) {
+          return true;
+        }
+
+        // public
+        if (pathname === "/" || pathname.startsWith("/api/videos")) {
+          return true;
+        }
+
+        // !! used to turn into boolean
+        return !!token;
       },
     },
   }
 );
+
+export const config = {
+  matcher: ["/((?!_next/static|_next/image|favicon.ico|public/).*)"],
+};
