@@ -88,7 +88,7 @@ export default function FileUpload({
           <span>Uploading...</span>
         </div>
       )}
-      // text-error and primary from daisyui
+      {/* text-error and primary from daisyui */}
       {error && <div className="text-error text-sm">{error}</div>}
     </div>
   );
