@@ -46,7 +46,7 @@ export default function VideoUploadForm() {
       return;
     }
 
-    setLoading(true);
+    // setLoading(true);
     try {
       await apiClient.createVideo(data);
 
